@@ -65,10 +65,9 @@ public class DaoAluno {
 			"SELECT ra,nome,dataNascimento,renda from Alunos WHERE RA=?";
 			PreparedStatement pstmt=connection.prepareStatement(sql);
 			pstmt.setInt(1, ra);
-			ResultSet rs = pstmt.executeQuery();
+		 	ResultSet rs = pstmt.executeQuery();
 			if( rs.next() ) {
-				int raNovo = rs.getInt(1);
-				String nome = rs.getString("nome");
+			 	String nome = rs.getString("nome");
 				Date dataNascimento = rs.getDate("dataNascimento");
 				double renda = rs.getDouble("renda");
 				Aluno aluno = new Aluno(ra,nome,dataNascimento,renda);
